@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let bk of Bookings">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>BookingId: {{ bk?.bookingId }}</ion-card-subtitle>
+          <ion-card-title>Cliente: {{ bk?.tutenUserClient?.firstName }} {{ bk?.tutenUserClient?.lastName}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>Fecha de Creación: {{ bk?.bookingTime | date }}</ion-label>
+          <ion-label>Dirección: {{ bk?.locationId?.streetAddress }}</ion-label>
+          <ion-label>Precio: {{ bk?.bookingPrice | currency  }}</ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
